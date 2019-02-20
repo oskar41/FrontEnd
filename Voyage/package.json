@@ -1,0 +1,53 @@
+{
+  "name": "quote",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node backend",
+    "devServer": "nodemon backend",
+    "serve": "vue-cli-service serve",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "lint": "vue-cli-service lint",
+    "devFront": "cross-env NODE_ENV=development webpack-dev-server --open --hot"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.7.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.14",
+    "@sendgrid/mail": "^6.3.1",
+    "body-parser": "^1.18.3",
+    "bootstrap": "^4.2.1",
+    "bootstrap-vue": "^2.0.0-rc.11",
+    "connect-history-api-fallback": "1.5.0",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "jquery": "^3.3.1",
+    "mongoose": "^5.4.10",
+    "morgan": "^1.9.1",
+    "npm": "^6.7.0",
+    "popper.js": "^1.14.7",
+    "uuid-token-generator": "1.0.0",
+    "vue": "^2.6.4",
+    "vue-textarea-autosize": "^1.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.24",
+    "@vue/cli-plugin-babel": "^3.4.0",
+    "@vue/cli-plugin-eslint": "^3.4.0",
+    "@vue/cli-service": "^3.4.0",
+    "babel-eslint": "^10.0.1",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.13.0",
+    "eslint-plugin-vue": "^5.1.0",
+    "file-loader": "^2.0.0",
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.10",
+    "sass-loader": "^7.1.0",
+    "vue-loader": "^15.6.2",
+    "vue-router": "^3.0.2",
+    "vue-template-compiler": "^2.6.4",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3"
+  }
+}
