@@ -1,28 +1,60 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col col-sm-12">
+            <h1>Site</h1>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </header>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col col-sm-2 menu">
+            <div>
+
+            </div>
+          </div>
+          <div class="col col-sm-10">
+            <router-view></router-view>
+            <!--<router-link to="/products">-->
+              <!--Products-->
+            <!--</router-link>-->
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import {mapGetters} from 'vuex';
+// import ProductList from './components/ProductList.vue'
+import Vue from 'vue'
+import BootstrapVue from 'bootstrap-vue'
+
+Vue.use(BootstrapVue);
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
   name: 'app',
-  components: {
-    HelloWorld
+  computed: {
+    ...mapGetters('menu', {
+      menuList: 'items'
+    })
   }
+  // components: {
+  //   ProductList
+  // }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
