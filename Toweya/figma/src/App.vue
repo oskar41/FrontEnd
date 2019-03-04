@@ -20,9 +20,7 @@
           </div>
           <div class="col col-sm-10">
             <router-view></router-view>
-            <!--<router-link to="/products">-->
-              <!--Products-->
-            <!--</router-link>-->
+
           </div>
         </div>
       </div>
@@ -33,7 +31,6 @@
 <script>
 
 import {mapGetters} from 'vuex';
-// import ProductList from './components/ProductList.vue'
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 
@@ -45,9 +42,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 export default {
   name: 'app',
 
-  // components: {
-  //   ProductList
-  // }
+
 }
 </script>
 
