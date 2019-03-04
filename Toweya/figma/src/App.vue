@@ -44,11 +44,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 export default {
   name: 'app',
-  computed: {
-    ...mapGetters('menu', {
-      menuList: 'items'
-    })
-  }
+
   // components: {
   //   ProductList
   // }
