@@ -38,10 +38,18 @@ Vue.use(BootstrapVue);
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import {mapActions} from 'vuex';
 
 export default {
   name: 'app',
-
+  methods: {
+  ...mapActions([
+      "add"
+    ]),
+  },
+  mounted() {
+    this.add()
+  },
 
 }
 </script>

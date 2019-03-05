@@ -1,15 +1,18 @@
 <template>
     <div class="div">
         <select class="custom-select"
-                v-model="selectedCategory">Category
+                v-model="selectedCategory">
+            Category
             <option value="All" selected>All</option>
-            <option value="Зимние шины" selected>Зимние шины</option>
+            <option value="Зимние шины">Зимние шины</option>
             <option value="Летние шины">Летние шины</option>
             <option value="Всесезонные шины">Всесезонные шины</option>
         </select>
         <form class="form-inline active-cyan-4">
             <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search"
+
                    v-model="searchString">
+            <!--@input="test($event)"-->
             <i class="fa fa-search" aria-hidden="true"></i>
         </form>
 
@@ -23,11 +26,18 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="item in evenNumbers ">
+            <tr v-for="(item, index) in evenNumbers ">
                 <th class="th-img">{{item.img}}</th>
-                <th class="th-title">{{item.title}}<br>{{item.description}}</th>
+
+                <th class="th-title">
+                    <router-link tag="h3" :to="'/products/' + item.id">
+                        <a>{{item.title}}</a>
+                    </router-link>
+                    <br>{{item.description}}
+                </th>
                 <th class="th-category">{{item.category}}</th>
                 <th class="th-price">{{item.price}}</th>
+                <th @click="remove(index)">delete</th>
             </tr>
             </tbody>
 
@@ -39,6 +49,7 @@
     import Vue from 'vue';
     import {mapGetters} from 'vuex';
     import {mapActions} from 'vuex';
+    import {mapMutations} from 'vuex';
 
     import axios from 'axios'
     import VueAxios from 'vue-axios'
@@ -55,12 +66,20 @@
         },
         methods: {
             ...mapActions([
-                "add"
+                "add",
+                "remove"
             ]),
+            ...mapMutations([
+                "changeSearchString"
+            ]),
+            // test(e){
+            //     this.changeSearchString(e.target.value)
+            //     console.log(e.target.value);
+            // }
         },
         computed: {
             ...mapGetters([
-                'items'
+                'items',
             ]),
             filteredItems: function () {
                 var articles_array = this.items,
@@ -89,9 +108,14 @@
 
             }
         },
-        mounted() {
-            this.add()
-        }
+        // mounted() {
+        //     this.add()
+        // },
+        // watch: {
+        //     items() {
+        //         this.add()
+        //     }
+        // }
 
 
     }
