@@ -1,43 +1,28 @@
 <template>
   <div id="app">
-    <header>
-      <div class="container">
-        <div class="row">
-          <div class="col col-sm-12">
-            <h1>Site</h1>
-          </div>
-        </div>
-        <hr>
-      </div>
-    </header>
-    <section>
-      <div class="container">
-        <div class="row">
-          <div class="col col-sm-2 menu">
-            <div>
-
-            </div>
-          </div>
-          <div class="col col-sm-10">
-            <router-view></router-view>
-
-          </div>
-        </div>
-      </div>
+    <div >
+        <AppHeader></AppHeader>
+    </div>
+    <section class="main-section">
+        <AppMenu></AppMenu>
+        <router-view></router-view>
     </section>
   </div>
 </template>
 
 <script>
 
-import {mapGetters} from 'vuex';
+
 import Vue from 'vue'
-import BootstrapVue from 'bootstrap-vue'
+// import BootstrapVue from 'bootstrap-vue'
 
-Vue.use(BootstrapVue);
+import AppHeader from './components/Header';
+import AppMenu from './components/Menu';
 
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+// Vue.use(BootstrapVue);
+
+// import 'bootstrap/dist/css/bootstrap.css'
+// import 'bootstrap-vue/dist/bootstrap-vue.css'
 import {mapActions} from 'vuex';
 
 export default {
@@ -50,10 +35,29 @@ export default {
   mounted() {
     this.add()
   },
+  components: {
+    AppHeader,
+    AppMenu
+  }
 
 }
 </script>
 
 <style>
+  #app{
+    position: relative;
+    width: 1440px;
+    height: 1205px;
 
+    background: #FFFFFF;
+  }
+  .main-section{
+    position: absolute;
+    width: 1191px;
+    height: 1141px;
+    left: 249px;
+    top: 64px;
+
+    background: #FFFFFF;
+  }
 </style>

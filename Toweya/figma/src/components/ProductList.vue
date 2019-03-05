@@ -26,8 +26,18 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(item, index) in evenNumbers ">
-                <th class="th-img">{{item.img}}</th>
+            <tr v-for="(item) in evenNumbers ">
+                <th class="th-img">
+                    <svg width="180" height="100" viewBox="0 0 318 318" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <rect width="318" height="318" fill="url(#pattern0)"/>
+                    <defs>
+                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0" transform="scale(0.00377358)"/>
+                        </pattern>
+                        <image id="image0" width="265" height="265" :href="item.img"/>
+                    </defs>
+                    </svg>
+                </th>
 
                 <th class="th-title">
                     <router-link tag="h3" :to="'/products/' + item.id">
@@ -37,7 +47,8 @@
                 </th>
                 <th class="th-category">{{item.category}}</th>
                 <th class="th-price">{{item.price}}</th>
-                <th @click="remove(index)">delete</th>
+                <th @click="remove(item.id)">delete</th>
+
             </tr>
             </tbody>
 
@@ -71,11 +82,7 @@
             ]),
             ...mapMutations([
                 "changeSearchString"
-            ]),
-            // test(e){
-            //     this.changeSearchString(e.target.value)
-            //     console.log(e.target.value);
-            // }
+            ])
         },
         computed: {
             ...mapGetters([
@@ -108,15 +115,6 @@
 
             }
         },
-        // mounted() {
-        //     this.add()
-        // },
-        // watch: {
-        //     items() {
-        //         this.add()
-        //     }
-        // }
-
 
     }
 </script>

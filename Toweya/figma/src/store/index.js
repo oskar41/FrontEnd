@@ -11,9 +11,6 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
 	state: {
 		items: [],
-		// searchString: '',
-		// selectedCategory: "All",
-		// filteredItems: []
 	},
 	getters: {
 		items(state){
@@ -36,15 +33,15 @@ export const store = new Vuex.Store({
 		loadItems(state, data){
 			state.items = data;
 		},
-		remove(state, key){
+		remove(state, id){
 
-			state.items.splice(key, 1);
-
-			console.log(state.items);
+			state.items.forEach((item, i) => {
+				if(item.id === id){
+					state.items.splice(i, 1);
+				}
+			});
 		},
-		// changeSearchString(state, data){
-		// 	state.searchString = data;
-		// }
+
 	},
 	actions: {
 		add(store){
