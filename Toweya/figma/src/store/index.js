@@ -11,6 +11,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
 	state: {
 		items: [],
+		menuState: false
 	},
 	getters: {
 		items(state){
@@ -27,20 +28,26 @@ export const store = new Vuex.Store({
 		},
 		item: (state, getters) => (id) => {
 			return getters.itemsMap[id];
-		}
+		},
+		menuState(state){
+			return state.menuState;
+		},
 	},
 	mutations: {
 		loadItems(state, data){
 			state.items = data;
 		},
 		remove(state, id){
-
-			state.items.forEach((item, i) => {
-				if(item.id === id){
-					state.items.splice(i, 1);
+			for(var i =0; i<state.items.length; i++){
+				if(state.items[i].id === id){
+					(state.items.splice(i, 1));
 				}
-			});
+			}
 		},
+		changeMenuState(state){
+			state.menuState = !state.menuState ;
+		},
+
 
 	},
 	actions: {

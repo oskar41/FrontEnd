@@ -3,9 +3,13 @@
     <div >
         <AppHeader></AppHeader>
     </div>
-    <section class="main-section">
+    <section >
         <AppMenu></AppMenu>
-        <router-view></router-view>
+
+        <div class="main-section">
+          <router-view></router-view>
+        </div>
+
     </section>
   </div>
 </template>
@@ -13,16 +17,10 @@
 <script>
 
 
-import Vue from 'vue'
-// import BootstrapVue from 'bootstrap-vue'
 
 import AppHeader from './components/Header';
 import AppMenu from './components/Menu';
 
-// Vue.use(BootstrapVue);
-
-// import 'bootstrap/dist/css/bootstrap.css'
-// import 'bootstrap-vue/dist/bootstrap-vue.css'
 import {mapActions} from 'vuex';
 
 export default {
@@ -46,7 +44,7 @@ export default {
 <style>
   #app{
     position: relative;
-    width: 1440px;
+    width: 100%;
     height: 1205px;
 
     background: #FFFFFF;

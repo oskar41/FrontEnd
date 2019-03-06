@@ -7,7 +7,7 @@ import ProductList from './components/ProductList';
 import Product from './components/Product';
 import E404 from './components/E404';
 
-import {store} from './store';
+
 
 const routes = [
 	{
